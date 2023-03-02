@@ -8,16 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "0f7ebd11da09b3fd",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "docs/Project-2-First-2022_2023.pdf"
-              }
-            }
-          },
-          {
             "id": "a7d672e4a829c961",
             "type": "leaf",
             "state": {
@@ -95,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/Project-2-First-2022_2023.pdf",
+                "file": "Scratch.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/Project-2-First-2022_2023.pdf",
+                "file": "Scratch.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/Project-2-First-2022_2023.pdf"
+                "file": "Scratch.md"
               }
             }
           }
@@ -156,14 +146,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0f7ebd11da09b3fd",
+  "active": "a7d672e4a829c961",
   "lastOpenFiles": [
+    "docs/Project-2-First-2022_2023.pdf",
     "Verilog/testbenches.v",
     "Verilog/testbenches",
     "Verilog/components.v",
     "Verilog",
     "Scratch.md",
-    "docs/Project-2-First-2022_2023.pdf",
     "docs/multi-cycle-datapath.pdf",
     "docs/MIPS+Multi-Cycle+CPU.pdf",
     "docs/Mapping+control+to+hardware.pdf"
