@@ -52,3 +52,52 @@ module instruction_mem(
         if (en) instruction <= {memory[address+2], memory[address+1], memory[address]};
     end
 endmodule
+module controler(
+    input clk, we = 0,
+    input [23:0] instruction,
+    output reg [4:0] opcode,
+    output reg [2:0] rs, rt, rd,
+    output reg [1:0] cond,
+    output reg set_flag,
+    output reg [23:0] dataOutA, dataOutB
+    );
+    regFile rf (rs, rt, rd, dataIn, dataOutA, dataOutB, clk, we);
+    always @* begin
+        opcode = instruction[21:17];
+        rs = instruction[12:10];
+        rt = instruction[9:7];
+        rd = instruction[15:13];
+        cond = instruction[23:22];
+        set_flag = instruction[16];
+    end
+endmodule
+module mini_system;
+    reg clk, instruction_en, we;
+    reg [23:0] pc, instruction;
+    wire [4:0] opcode;
+    wire [2:0] rs, rt, rd;
+    wire [1:0] cond;
+    wire set_flag;
+    wire [23:0] dataOutA, dataOutB;
+    controler c (clk, we, instruction, opcode, rs, rt, rd, cond, set_flag, dataOutA, dataOutB);
+    instruction_mem im (pc, clk, instruction_en, instruction);
+    initial begin 
+        clk = 1;
+        instruction_en = 1;
+        #100 $finish;
+    end
+    always #5 clk = ~clk;
+    initial begin
+        pc = 0;
+        instruction_en = 1;
+        #10
+        pc = 3;
+        #10
+        pc = 6;
+        #10
+        pc = 9;
+    end
+    always @(negedge clk) begin
+        display("PC: %h, Instruction: %h, Opcode: %h, rs: %h, rt: %h, rd: %h, cond: %h, set_flag: %h, dataOutA: %h, dataOutB: %h", pc, instruction, opcode, rs, rt, rd, cond, set_flag, dataOutA, dataOutB);
+    end
+endmodule
